@@ -87,7 +87,7 @@ for image_path in image_paths:
     style = style_to_vec(image_to_style(image_tensor))
     image_style_embeddings[ntpath.basename(image_path)] = style
 
-tsne = manifold.TSNE(n_components=2, init='pca', perplexity=2, random_state=0)
+tsne = manifold.TSNE(n_components=2, init='pca', perplexity=1, random_state=0)
 X_tsne = tsne.fit_transform(np.array(list(image_style_embeddings.values())))
 
 def embedding_plot(X, images, thumbnail_sparsity=0.005, thumbnail_size=0.3):
